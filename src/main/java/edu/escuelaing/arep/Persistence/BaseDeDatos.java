@@ -7,11 +7,18 @@ import com.mongodb.MongoClient;
 import com.mongodb.MongoClientURI;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
-
+/**
+ * Clase encargada de administrar la base de datos
+ * @author Jose
+ *
+ */
 public class BaseDeDatos {
 	private MongoCollection<org.bson.Document> columnas;
 	private String key;
 	private int llave;
+	/**
+	 * Metodo encargado de realizar la conexion a la base de datos
+	 */
 	public BaseDeDatos() {
 		llave = 0;
 		key = "dato";
@@ -20,10 +27,18 @@ public class BaseDeDatos {
 		MongoDatabase dataBase = mongoClient.getDatabase("Calculos");
 		columnas = dataBase.getCollection("Numeros");
 	}
+	/**
+	 * Metodoencargado de insertar en la base de datos
+	 * @param valor
+	 */
 	public void insertDataBase(String valor) {
 		Document prueba = new Document(key, valor);
 		columnas.insertOne(prueba);
 	}
+	/**
+	 * Metodo encargado de consultar los datos disponibles de la base de datos
+	 * @return
+	 */
 	public String consultarDatos() {
 		String data ="";
 		int i=1;

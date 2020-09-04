@@ -23,14 +23,24 @@ import javax.imageio.ImageIO;
 import com.mongodb.Function;
 
 import edu.escuelaing.arep.Spark.SparkConection;
-
+/**
+ * Calse encargada de resivir las peticiones
+ * @author Jose
+ *
+ */
 public class HTTPServer extends Thread{
 	private  ServerSocket serverSocket = null;
 	private  Socket clientSoket = null;
 	private Map<String, Function<Respuestas, String>> funciones = new HashMap<String, Function<Respuestas,String>>();
+	/**
+	 * 
+	 */
 	public HTTPServer () {	
 
 	}
+	/**
+	 * metodo el cual lee las peticiones
+	 */
 	public void run() {
 		try {
 			serverSocket = new ServerSocket(getPort());
@@ -46,7 +56,11 @@ public class HTTPServer extends Thread{
 		}
 	}
 
-
+	/**
+	 * Metodo encargado en resolver la solicitud 
+	 * @param inputStream inputStream del serverSocket
+	 * @throws IOException 
+	 */
 	private void resolvingRequest(InputStream inputStream) throws IOException {
 		boolean fin = true;
 		String[] get = null ;
@@ -94,17 +108,31 @@ public class HTTPServer extends Thread{
 		in.close();
 
 	}
-
+	/**
+	 * Lee una funcion lambda
+	 * @param path ruta de lo que desea hacer 
+	 * @param dato los datos a proyectar
+	 */
 	public void ingresarSolicitud(String path, Function<Respuestas, String> dato) {
 
 		funciones.put(path, dato);
 	}
+	/**
+	 * Metodo encargado de asignar el puerto
+	 * @return puerto a correr
+	 */
 	private static int getPort() {
 		if (System.getenv("PORT") != null) {
 			return Integer.parseInt(System.getenv("PORT"));
 		}
 		return 36000;
 	}
+	/**
+	 * Crea una respuesta para el get
+	 * @param respuesta Datos de la peticion
+	 * @param outputStream  inputStream del serverSocket
+	 * @throws IOException
+	 */
 	private void createResponse (Respuestas respuesta, InputStream outputStream) throws IOException {
 
 		PrintWriter response = new PrintWriter(respuesta.getResponse(), true);
@@ -126,6 +154,12 @@ public class HTTPServer extends Thread{
 		}
 
 	}
+	/**
+	 * Encargado de proyectar una imagen
+	 * @param recurso Archivo que desea abrir 
+	 * @param response en donde va a proyectar la imagen
+	 * @param outputStream inputStream del serverSocket
+	 */
 	private void leerImagen(String recurso, PrintWriter response, OutputStream outputStream) {
 		try {
 			response.println("HTTP/1.1 200 OK");

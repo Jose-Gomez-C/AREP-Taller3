@@ -8,6 +8,7 @@ import java.io.OutputStream;
 import javax.print.attribute.standard.OutputDeviceAssigned;
 
 /**
+ * Metodo que almcaena lo necesario para responder el metodo get
  * @author Jose
  *
  */
@@ -25,6 +26,11 @@ public class Respuestas {
 	public Respuestas() {
 		
 	}
+	/**
+	 * Metodo encargado de guardar los paramentros necesarios de la respuesta
+	 * @param response OutputStream que le pertenece 
+	 * @param path la ruta de lo que desea hacer 
+	 */
 	public Respuestas(OutputStream response, String path) {
 		isPost=false; 
 		this.response = response;
@@ -49,12 +55,22 @@ public class Respuestas {
 		}
 		
 	}
+	/**
+	 * Metodo encargado de guardar los paramentros necesarios de la respuesta
+	 * @param outputStream OutputStream que le pertenece 
+	 * @param body Cuerpo de la pagina que desea guardar
+	 * @param path la ruta de lo que desea hacer
+	 */
 	public Respuestas(OutputStream outputStream, String body, String path) {
 		this.response = outputStream;
 		this.path =path;
 		this.body = body; 
 		isPost = true;
 	}
+	/**
+	 * Lee los archivos que encuentre en la ruta
+	 * @return Lapagina a cargar 
+	 */
 	public String generatePage() {
 		pagina ="";
 		try {
@@ -72,28 +88,52 @@ public class Respuestas {
 		}
 		return pagina; 
 	}
+	/**
+	 * 
+	 * @return
+	 */
 	public String getPagina() {
 		return pagina;
 	}
+	/**
+	 * 
+	 * @return
+	 */
 	public boolean getIsPost() {
 		return isPost;
 	}
+	/**
+	 * 
+	 * @return
+	 */
 	public String getOk() {
 		return ok;
 	}
-	
+	/**
+	 * 
+	 * @return
+	 */
 	public String getBad() {
 		return bad;
 	}
-	
+	/**
+	 * 
+	 * @return
+	 */
 	public OutputStream getResponse() {
 		return response;
 	}
-	
+	/**
+	 * 
+	 * @return
+	 */
 	public String getContentType() {
 		return contentType;
 	}
-	
+	/**
+	 * 
+	 * @return
+	 */
 	public OutputStream getOutputStream() {
 		return response;
 	}
@@ -101,16 +141,31 @@ public class Respuestas {
 	public String getPath() {
 		return path;
 	}
-	
+	/**
+	 * 
+	 * @return
+	 */
 	public boolean getEsImagen() {
 		return esImagen;
 	}
+	/**
+	 * 
+	 * @return
+	 */
 	public String getEstado() {
 		return estado;
 	}
+	/**
+	 * 
+	 * @param pagina
+	 */
 	public void setPagina(String pagina) {
 		this.pagina = pagina;
 	}
+	/**
+	 * 
+	 * @return
+	 */
 	public String getBody() {
 		return body; 
 }
