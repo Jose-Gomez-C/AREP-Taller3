@@ -33,8 +33,6 @@ $ mvn javadoc:javadoc
 # Integracion Continua
 [![CircleCI](https://circleci.com/gh/jose-gome/AREP-2020-1-Calculadora-estadistica.svg?style=svg)](https://circleci.com/gh/jose-gome/AREP_Taller-4)
 
-```
-```
 
 # Construido con
   - [Maven](https://maven.apache.org/) - Dependency Management
