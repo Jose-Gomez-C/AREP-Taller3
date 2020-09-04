@@ -29,6 +29,10 @@ Y para consultar los datos de es atreves de /Datos
 
 ![](/Imagenes/Datos.png)
 
+Un ejemplo de las imagenes proyectadas
+
+![](imagenes/imagen.png)
+
 # Generar Javadoc
 
 ```sh
