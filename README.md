@@ -24,6 +24,7 @@ $ mvn exec:java -Dexec.mainClass="edu.escuelaing.arep.Spark.SparkForMe"
 La aplicación inserta en una base de datos atreves de esta página web
 ![](/Imagenes/insertarDatos.png)
 Y para consultar los datos de es atreves de /Datos
+
 ![](/Imagenes/Datos.png)
 # Generar Javadoc
 
