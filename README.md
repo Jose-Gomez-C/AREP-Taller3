@@ -31,7 +31,7 @@ Y para consultar los datos de es atreves de /Datos
 
 Un ejemplo de las imagenes proyectadas
 
-![](imagenes/imagen.png)
+![](Imagenes/imagen.png)
 
 # Generar Javadoc
 
