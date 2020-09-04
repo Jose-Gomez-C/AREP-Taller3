@@ -25,11 +25,6 @@ La aplicación inserta en una base de datos atreves de esta página web
 ![](/Imagenes/insertarDatos.png)
 Y para consultar los datos de es atreves de /Datos
 ![](/Imagenes/Datos.png)
-# Ejecutando pruebas
-Para ejecutar las pruebas automatizadas utilizaremos el siguiente comando.
-```sh
-$ mvn test 
-```
 # Generar Javadoc
 
 ```sh
